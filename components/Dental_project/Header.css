@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* :root{
+    --blue:#00b8b8;
+    --black:#333;
+    --white:#fff;
+    --light-color:#666;
+    --light-bg:#eee;
+    --border: .2rem solid rgba(0,0,0,.1);
+    --border-shadow: 0.5rem 1rem rgba(0,0,0,.1);
+
+}
+
+*::-webkit-scrollbar{
+    height: 5rem;
+    width: 1rem;
+}
+*::-webkit-scrollbar-track{
+background-color: transparent;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: blue;
+} */
+*{
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none !important;
+    list-style: none;
+    text-transform: capitalize;
+}
+.navbar{
+    display: flex;
+    padding: 1rem;
+    border-bottom:2px solid #D3D3D3;
+}
+.navbar ul li{
+     float: left;
+     padding: 10px 5px;
+     margin-left: 80px;
+}
+
+.logo{
+   color: black;
+}
+.logo span{
+    color: #6DBBBD;
+}
+.navbar ul li .cont{
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #6699CC;
+
+}
+.logo_icon{
+    cursor: pointer;
+}
+
+
+

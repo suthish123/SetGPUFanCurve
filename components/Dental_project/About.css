@@ -1,0 +1,21 @@
+.main{
+    /* justify-content: center;
+    text-align: center; */
+    background: url(./Ab.img.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    width: 100%;
+}
+.main_content{
+    background-color: #E6C2C5;
+    width: 50%;
+
+}
+.main_content h2{
+text-align: center;
+justify-content: center;
+}
+ul li{
+    margin-left: 200px;
+}
