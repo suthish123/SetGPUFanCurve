@@ -1,0 +1,15 @@
+.service_container{
+   background: url(./ser.img.jpg);
+   background-size: cover;
+   background-position: center;
+   height: 70vh;
+}
+.service_content{
+    float: right;
+    /* background-color: #6DBBBD; */
+    background-color: #E6C2C5;
+}
+.service_content h2{
+    justify-content: center;
+    text-align: center;
+}

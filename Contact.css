@@ -1,0 +1,11 @@
+.contact_container{
+    display: flex;
+    background-color: #B4E3EF;
+    height: 40vh;
+    width: 100%;
+}
+.contact_content{
+    margin-left: 50px;
+}
+
+

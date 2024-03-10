@@ -1,0 +1,20 @@
+ul li .appoint{
+    color: #fff;
+    cursor: pointer;
+    border: 3px;
+    padding: 4px;
+    background-color: #6DBBBD;
+    border-radius: 5px;
+}
+.container{
+    position: relative;
+   background: url(./bg.img.jpg);
+   background-size: cover;
+   background-position: center;
+   height: 90vh;
+}
+.content{
+    position: absolute;
+    margin-left: 110px;
+    margin-top: 140px;
+}
