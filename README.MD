@@ -1,3 +1,6 @@
+[<image-card alt="License: GPL v2" src="https://img.shields.io/badge/License-GPL%20v2-blue.svg" ></image-card>](https://www.gnu.org/licenses/gpl-2.0)
+[<image-card alt="Tested On" src="https://img.shields.io/badge/Tested%20On-Gentoo-brightgreen" ></image-card>](https://github.com/Cosmic-AU/SetGPUFanCurve/issues)
+
 README.MD
 
 # SetGPUFanCurve.sh
