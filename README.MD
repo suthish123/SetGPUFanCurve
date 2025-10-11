@@ -11,14 +11,17 @@ A simple bash script for changing the fan curve and other settings on the AMD RX
 
 I wrote this script to allow me to control the fan speed on my **Sapphire Nitro+ Radeon RX 7900 XTX 24GB GDDR6 Video Card** running on **Gentoo Linux**. It might be useful to others, so I threw it up here. If you want to change the various profile settings, the **PROFILE DEFINITIONS** section in the script should be fairly self-explanatory.
 
-Free to use, copy, extend, fork, with attribution. Cheers! 🚀
+Free to use, copy, extend, fork, with attribution (as per GPL 2.0). Cheers! 🚀
+
+## Testing
+
+- **OS**: Created/Tested on Gentoo Linux,  with the `amdgpu` kernel support (kernel 6.15).
 
 ## Requirements
 
-- **OS**: Linux with the `amdgpu` kernel module (tested on Gentoo with kernel 6.15+).
-- **Privileges**: Run as root (`sudo`).
+- **Privileges**:    Run as root (`sudo`).
 - **AMD Overdrive**: Enable via kernel parameter `amdgpu.ppfeaturemask` (see **Important Note** below).
-- **Dependencies**: None (pure bash; assumes `amdgpu` sysfs paths exist).
+- **Dependencies**:  None (pure bash; assumes `amdgpu` sysfs paths exist).
 
 ## Usage
 
