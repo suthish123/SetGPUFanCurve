@@ -1,0 +1,134 @@
+#!/bin/bash
+#
+# /_scripts/SetGPUFanCurve.sh 
+#
+# ▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜
+# ▌╔══════════════════════════════════════════════════════════════════════════╗▐
+# ▌║ Set GPU Fan Curve                                                        ║▐
+# ▌╚══════════════════════════════════════════════════════════════════════════╝▐
+# ▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟
+# ▌                                                                            ▐
+# ▌ This Script set's various Fan Curves for my Sapphire Nitro+ Radeon RX 7900 ▐ 
+# ▌ XTX 24GB GDDR6 Video Card.                                                 ▐
+# ▌                                                                            ▐
+# ▌ Note: 'fan_zero_rpm_enable' (and similarly others in the 'fan_ctrl'        ▐
+# ▌ directory)  is a virtual file, that hooks into the Linux kernel's sysfs    ▐
+# ▌ filesystem (specifically amdgpu kernel module for my RX 7900 XTX's         ▐
+# ▌ overdrive (OD) features) allowing them to be changed via the echo command  ▐ 
+# ▌ and queried via the cat command.                                           ▐
+# ▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟
+
+FAN_CTRL_DIR="/sys/class/drm/card0/device/gpu_od/fan_ctrl"
+PARAM_DESCR=""
+PARAM_FILE=""
+PARAM_SETTING=""
+LINE="——————————————————————————————————————————————"
+FAN_NODES=(
+  "0 25 30"
+  "1 45 40"
+  "2 55 70"
+  "3 65 90"
+  "4 75 100"
+)
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ General GPU Parameter Set Function                                         ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+SetState() 
+     {    echo "╔══════════════════════════════════════╗"
+          echo "║ $PARAM_DESCR ║"
+          echo "╚══════════════════════════════════════╝"
+          echo ""
+          echo "Current State:-"
+          echo "$LINE"
+          cat  "$FAN_CTRL_DIR/$PARAM_FILE"
+          echo "$LINE"
+          echo "echoing $PARAM_SETTING to $FAN_CTRL_DIR/$PARAM_FILE"
+          echo "$PARAM_SETTING" > "$FAN_CTRL_DIR/$PARAM_FILE" || exit 1
+          echo "$LINE"
+          echo "New State:-"
+          echo "$LINE"
+          cat  "$FAN_CTRL_DIR/$PARAM_FILE"
+          echo "$LINE"
+          echo ""
+          echo ""
+     }
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Disable GPU Zero Speed Fan Function                                        ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+PARAM_DESCR="Disabling Zero Fan Speed Function   "
+PARAM_FILE="fan_zero_rpm_enable"
+PARAM_SETTING="0"
+SetState
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Set Minimum Fan Speed                                                      ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+PARAM_DESCR="Setting The Minimum Fan Speed       "
+PARAM_FILE="fan_minimum_pwm"
+PARAM_SETTING="30"
+SetState
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Set Fan Target Temperature                                                 ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+PARAM_DESCR="Setting Fan Target Temperature      "
+PARAM_FILE="fan_target_temperature"
+PARAM_SETTING="40"
+SetState
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Set Acoustic Limit RPM Threshold                                           ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+PARAM_DESCR="Setting Acoustic Limit RPM Thrshld  "
+PARAM_FILE="acoustic_limit_rpm_threshold"
+PARAM_SETTING="3200"
+SetState
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Set Acoustic Target RPM Threshold                                          ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+PARAM_DESCR="Setting Acoustic Target RPM Thrshld "
+PARAM_FILE="acoustic_target_rpm_threshold"
+PARAM_SETTING="3200"
+SetState
+
+# ╔════════════════════════════════════════════════════════════════════════════╗
+# ║ Set Fan Curve                                                              ║
+# ╚════════════════════════════════════════════════════════════════════════════╝
+
+PARAM_DESCR="Setting Fan Curve                "
+PARAM_FILE="fan_curve"
+# Note: For fan_curve, we apply multiple nodes before committing—handle as a block
+echo ""
+echo "╔═══════════════════════════════════╗"
+echo "║ $PARAM_DESCR ║"
+echo "╚═══════════════════════════════════╝"
+echo ""
+echo "Current State:-"
+echo "$LINE"
+cat  "$FAN_CTRL_DIR/$PARAM_FILE"
+echo "$LINE"
+echo "Applying fan curve nodes:"
+for node in "${FAN_NODES[@]}"; do
+  echo "Echoing '$node' to $FAN_CTRL_DIR/$PARAM_FILE"
+  printf '%s\n' "$node" > "$FAN_CTRL_DIR/$PARAM_FILE"
+done
+echo "Committing fan curve"
+echo "echoing 'c' to $FAN_CTRL_DIR/$PARAM_FILE (commit)"
+printf 'c\n' >"$FAN_CTRL_DIR/$PARAM_FILE"
+echo "$LINE"
+echo "New State:-"
+echo "$LINE"
+cat  "$FAN_CTRL_DIR/$PARAM_FILE"
+echo "$LINE"
+echo ""
+echo ""
+echo "Fan curve applied successfully — monitor with 'sensors' or 'amdgpu_top'."
