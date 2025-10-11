@@ -102,9 +102,11 @@ Free to use, copy, extend, fork, with attribution. Cheers! 🚀
 ## Contributing / License
 
 License: per GPL 2.0
+
 Issues/PRs: Welcome! Open an issue on GitHub if you find bugs or have suggestions.
 
 ---
 
 Script version: v1.0 (as of October 12, 2025)
+
 Author: cosmic (Gentoo user)
