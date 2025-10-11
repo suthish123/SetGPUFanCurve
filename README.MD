@@ -19,7 +19,7 @@ Free to use, copy, extend, fork, with attribution. Cheers! 🚀
 
 ## Usage
 
-
+```
 ▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜
 ▌╔════════════════════════════════════════════════════════════════════════════╗▐
 ▌║ Set GPU Fan Curve - Help                                                   ║▐
@@ -94,11 +94,11 @@ Free to use, copy, extend, fork, with attribution. Cheers! 🚀
 ▌          Sapphire Nitro+ Radeon RX 7900 XTX 24GB GDDR6 Video Card            ▐
 ▌      It may work on other similar cards but this has not been tested!        ▐
 ▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟
-
+```
 
 ## Contributing / License
 
-License: Free to use, copy, extend, or fork—with attribution.
+License: per GPL 2.0
 Issues/PRs: Welcome! Open an issue on GitHub if you find bugs or have suggestions.
 
 ---
